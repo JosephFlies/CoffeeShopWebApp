@@ -8,22 +8,24 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #fdf5e6;
-    font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 form {
     background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 30px;
+    padding: 25px;
     border-radius: 20px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     display: flex;
     flex-direction: column;
-    width: 300px;
-    gap: 10px;
+    width: 90%;
+    max-width: 400px;
+    gap: 15px;
+    max-height: 85vh;
+    overflow-y: auto;
 }
 
 input, select, textarea {
@@ -38,7 +40,6 @@ input, select, textarea {
 label {
     font-weight: bold;
     margin-top: 5px;
-    color: #4b3832;
 }
 
 h1, p {
@@ -47,7 +48,6 @@ h1, p {
 }
 
 h1 {
-    color: #4b3832;
     margin-top: 0;
 }
 
@@ -60,4 +60,86 @@ p {
     font-size: 1.1rem;
     font-weight: 300;
     margin-bottom: 20px;
+}
+
+button {
+    background: linear-gradient(135deg, #e6be8a 0%, #d4a373 100%);
+    color: #3e2723;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(212, 163, 115, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 15px;
+}
+
+.error-message {
+    color: #ff6b6b;
+    font-size: 0.85rem;
+    margin-top: -10px;
+    margin-bottom: 5px;
+    display: none;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.input-error {
+    border: 2px solid #ff6b6b !important;
+    background-color: rgba(255, 107, 107, 0.2);
+}
+
+/* Bu sınıfı başarı anında formun içindeki elemanlara vereceğiz */
+.hidden {
+    display: none !important;
+}
+
+/* Success box'ı formun içinde tam merkezde ve geniş görünsün */
+.success-box {
+    display: none;
+    background: rgba(40, 167, 69, 0.25);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    padding: 40px 20px; /* Biraz daha geniş ve ferah olsun */
+    text-align: center;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.success-box .icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-10px); }
+    to {opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width: 480px) {
+    body {
+        align-items: flex-start;
+        padding-top: 30px;
+    }
+
+    form {
+        padding: 20px;
+        gap: 12px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    input, button, select {
+        padding: 10px;
+        font-size: 16px;
+    }
+
 }
