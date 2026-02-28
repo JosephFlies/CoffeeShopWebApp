@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const coffeeForm = document.querySelector('form');
 
     if (coffeeForm) {
-        coffeeForm.addEventListener('submit', (e) => {
+        coffeeForm.addEventListener('submit', async (e) => { 
             e.preventDefault();
 
             const nameInput = document.getElementById('full-name');
@@ -13,9 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const successText = document.getElementById('success-text');
 
             let hasError = false;
-
-            // 1. İsim Kontrolü (.value kullandık)
-            if (nameInput.value.trim().length < 3) {
+            if(nameInput.value.trim().length < 3) {
                 nameError.style.display = 'block';
                 nameInput.classList.add('input-error');
                 hasError = true;
@@ -24,9 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 nameInput.classList.remove('input-error');
             }
 
-            // 2. Email Kontrolü (Parantezler düzeltildi)
             const emailValue = emailInput.value.trim();
-            if (emailValue === "" || !emailValue.includes('@') || !emailValue.includes('.')) {
+            if(emailValue === "" || !emailValue.includes('@') || !emailValue.includes('.')) {
                 emailError.style.display = 'block';
                 emailInput.classList.add('input-error');
                 hasError = true;
@@ -35,29 +32,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 emailInput.classList.remove('input-error');
             }
 
-            // 3. Başarı Durumu (Başına ! ekledik, hata YOKSA çalışacak)
-            if (!hasError) {
-                const allChildren = coffeeForm.children;
-                for (let child of allChildren) {
-                    if (child.id !== 'success-message') {
-                        child.style.display = 'none';
+            if(hasError) return;
+
+            const formData = {
+                fullName: nameInput.value,
+                email: emailInput.value
+            };
+
+            try {
+                const response = await fetch('https://coffeeshopwebapp.onrender.com/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    const allChildren = coffeeForm.children;
+                    for (let child of allChildren) {
+                        if (child.id !== 'success-message') {
+                            child.style.display = 'none';
+                        }
                     }
+                    successBox.style.display = 'block';
+                    successText.innerText = `Congratulations ${nameInput.value}! Your 50% discount is on the way. ☕`;
+                } else {
+                    alert("Error: " + data.message);
                 }
-                successBox.style.display = 'block';
-                // Template literal kullanımı için backtick (`) kullandık
-                successText.innerText = `Congratulations ${nameInput.value}! Your 50% discount is on the way. ☕`;
+            } catch (error) {
+                console.error("Connection lost:", error);
+                alert("You cannot connect to the server, please make sure to initialize the server.js!");
             }
         });
     }
 });
-
-fetch('/register', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json' },
-    body: JSON.stringify({
-        fullName: nameInput.value,
-        email: emailInput.value
-    })
-})
-.then(response => response.json())
-.then(data => console.log("Answer coming from the server:", data))
