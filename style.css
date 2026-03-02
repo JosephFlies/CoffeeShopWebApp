@@ -24,8 +24,6 @@ form {
     width: 90%;
     max-width: 400px;
     gap: 15px;
-    max-height: 85vh;
-    overflow-y: auto;
 }
 
 input, select, textarea {
