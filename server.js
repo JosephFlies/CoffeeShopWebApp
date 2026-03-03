@@ -1,5 +1,6 @@
 require('dotenv').config();
 console.log("=== RENDER SUNUCUSU CALISIYOR - LOG TESTI ===");
+const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -29,6 +30,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 // Middleware ayarları
+app.use
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/')));
@@ -63,6 +65,15 @@ app.post('/register', async (req, res) => {
             message: "Something went wrong on our side.",
             error: error.message
         });
+    }
+});
+
+app.get('/admin/users', async (req, res) => {
+    try {
+        const users = (await User.find()).sort({date: -1});
+        res.status(200).json(users);
+    } catch (error) {
+        res.status(500).json({message: "Failed to retrieve data!"});
     }
 });
 
