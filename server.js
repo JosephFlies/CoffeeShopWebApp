@@ -5,6 +5,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const app = express();
+app.use(cors());
 
 // Render portu otomatik atar, yoksa 3000 kullanır
 const PORT = process.env.PORT || 3000;
@@ -30,7 +31,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 // Middleware ayarları
-app.use(cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/')));
