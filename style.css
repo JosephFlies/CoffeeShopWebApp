@@ -4,6 +4,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px 0;
@@ -25,7 +26,8 @@ form {
     width: 90%;
     max-width: 400px;
     gap: 15px;
-    margin: 50px 0; /* Üstten ve alttan boşluk vererek nefes aldırır */
+    margin-top: auto;
+    margin-bottom: auto;
     z-index: 2;
 }
 
@@ -263,12 +265,12 @@ th:last-child, td:last-child {
 
 .main-footer {
     text-align: center;
-    padding: 20px;
+    padding: 20px 0;
     color: rgba(255, 255, 255, 0.6);
     font-size: 14px;
     width: 100%;
-    margin-top: auto; /* Tüm boşluğu yukarıya iterek footer'ı en alta sabitler */
-    background: rgba(0, 0, 0, 0.2); /* Footer arkasına hafif bir derinlik */
+    margin-top: auto; 
+    background: rgba(0, 0, 0, 0.2);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
 }
@@ -279,11 +281,11 @@ th:last-child, td:last-child {
     opacity: 0.4;
     font-size: 12px;
     margin-left: 10px;
-    transition: opacity 0.3s ease, color 0.3s ease;
+    transition: 0.3s;
 }
 
 .admin-login-link:hover {
-    opacity: 1;
+    opacity: 0.9;
     color: #e6be8a;
 }
 
