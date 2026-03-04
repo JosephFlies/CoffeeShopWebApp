@@ -69,6 +69,18 @@ app.post('/register', async (req, res) => {
     }
 });
 
+app.post('/admin/login', (req, res) => {
+    const {password} = req.body;
+    const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "Ryuzaki123";
+
+    if (password === ADMIN_PASSWORD) {
+        res.status(200).json ({ message: "Login Successfull!", success: true });
+
+    } else {
+        res.status(401).json({ message: "Wrong password!", success: false });
+    }
+});
+
 app.get('/admin/users', async (req, res) => {
     try {
         console.log("Veritabanı isteği başlıyor...");

@@ -1,23 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coffee Land - Admin Panel</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Registered Users</h1>
-    <table id="user-table">
-        <thead>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="admin-container">
+      <div class="admin-card">
+        <h1>Registered Users</h1>
+        <table id="user-table">
+          <thead>
             <tr>
-                <th>Full Name</th>
-                <th>E-mail</th>
-                <th>Register Date</th>
+              <th>Full Name</th>
+              <th>E-mail</th>
+              <th>Register Date</th>
             </tr>
-        </thead>
-        <tbody id="user-list"> </tbody>
-    </table>
+          </thead>
+          <tbody id="user-list"></tbody>
+        </table>
+      </div>
+    </div>
     <script src="admin.js"></script>
-</body>
+  </body>
 </html>

@@ -153,3 +153,109 @@ button:active {
     }
 
 }
+
+.admin-container {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.admin-card {
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    width: 90%;
+    max-width: 1000px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: white;
+}
+
+th {
+    background: rgba(255, 165, 0, 0.3);
+    padding: 12px;
+    text-align: center;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th:last-child, td:last-child {
+    border-right: none;
+}
+
+.login-body {
+    background: url(https://png.pngtree.com/thumb_back/fh260/background/20230703/pngtree-d-illustration-of-architectural-design-for-a-coffee-shop-lounge-with-image_3788822.jpg) no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-container {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    width: 350px;
+    color: white;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    margin: 20px 0;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: none;
+}
+
+#login-button {
+    width: 100%;
+    padding: 12px;
+    background: #d4a373;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#login-button:hover {
+    background: #bc8a5f;
+}

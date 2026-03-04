@@ -1,5 +1,8 @@
+if(localStorage.getItem('adminLoggedIn') !== 'true') {
+    window.location.href = 'login.html';
+}
 document.addEventListener('DOMContentLoaded', async () => {
-    const userList = document.getElementById('#user-list');
+    const userList = document.getElementById('user-list');
 
     try {
         const response = await fetch('https://coffeeshopwebapp.onrender.com/admin/users');
