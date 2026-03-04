@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const userList = document.getElementById('user-list');
+    const userList = document.getElementById('#user-list');
 
     try {
         const response = await fetch('https://coffeeshopwebapp.onrender.com/admin/users');
@@ -8,14 +8,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         if(response.ok) {
             userList.innerHTML = '';
 
-            users.forEach(userList => {
+            users.forEach(user => {
                 const row = document.createElement('tr');
 
-                const registrationDate = new Date(users.date).toLocaleDateString('tr-TR');
+                const regDate = new Date(users.date).toLocaleDateString('tr-TR');
                 row.innerHTML = `
-                    <td>${users.fullName}</td>
-                    <td>${users.email}</td>
-                    <td>${registrationDate}</td>
+                    <td>${user.fullName}</td>
+                    <td>${user.email}</td>
+                    <td>${regDate}</td>
                     `;
 
                     userList.appendChild(row);
