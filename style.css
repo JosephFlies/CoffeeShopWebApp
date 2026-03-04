@@ -259,3 +259,8 @@ th:last-child, td:last-child {
 #login-button:hover {
     background: #bc8a5f;
 }
+
+#login-page {
+    opacity: 0.5;
+    font-size: 12px;
+}
