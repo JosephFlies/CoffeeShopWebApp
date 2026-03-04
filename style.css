@@ -260,7 +260,25 @@ th:last-child, td:last-child {
     background: #bc8a5f;
 }
 
-#login-page {
-    opacity: 0.5;
+.main-footer {
+    text-align: center;
+    padding: 20px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.admin-login-link {
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.3;
     font-size: 12px;
+    margin-left: 10px;
+    transition: opacity 0.3;
+}
+
+.admin-login-link:hover {
+    opacity: 0.8;
 }
