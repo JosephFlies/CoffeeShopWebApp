@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             users.forEach(user => {
                 const row = document.createElement('tr');
 
-                const regDate = new Date(users.date).toLocaleDateString('tr-TR');
+                const regDate = new Date(user.date).toLocaleDateString('tr-TR');
                 row.innerHTML = `
                     <td>${user.fullName}</td>
                     <td>${user.email}</td>
