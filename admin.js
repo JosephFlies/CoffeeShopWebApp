@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             users.forEach(userList => {
                 const row = document.createElement('tr');
 
-                const registrationDate = new Date(user.date).toLocaleDateString('tr-TR');
+                const registrationDate = new Date(users.date).toLocaleDateString('tr-TR');
                 row.innerHTML = `
-                    <td>${user.fullName}</td>
-                    <td>${user.email}</td>
+                    <td>${users.fullName}</td>
+                    <td>${users.email}</td>
                     <td>${registrationDate}</td>
                     `;
 

@@ -71,10 +71,13 @@ app.post('/register', async (req, res) => {
 
 app.get('/admin/users', async (req, res) => {
     try {
-        const users = (await User.find()).sort({date: -1});
-        res.status(200).json(users);
-    } catch (error) {
-        res.status(500).json({message: "Failed to retrieve data!"});
+        console.log("Veritabanı isteği başlıyor...");
+        const users = await User.find();
+        console.log("Veriler başarıyla çekildi:", users.length);
+        res.json(users);
+    } catch (err) {
+        console.error("KRİTİK HATA:", err.message);
+        res.status(500).json({ status: "fail", message: err.message });
     }
 });
 
