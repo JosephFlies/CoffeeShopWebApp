@@ -52,7 +52,7 @@ app.post('/register', async (req, res) => {
 
         await newUser.save();
         
-        res.status(201).json({
+        return res.status(201).json({
             success: true,
             message: "Registration successful!"
         });

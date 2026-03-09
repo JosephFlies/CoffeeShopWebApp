@@ -111,14 +111,22 @@ button:active {
 }
 
 .success-box {
-    display: none;
+    display: none; /* Başlangıçta gizli */
     background: rgba(40, 167, 69, 0.25);
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 15px;
-    padding: 40px 20px;
+    padding: 30px 20px;
     text-align: center;
+    width: 100%; /* Formun genişliğine yayılsın */
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.show-success {
+    display: block !important;
     animation: popIn 0.6s ease-out;
 }
 
