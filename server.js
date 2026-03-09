@@ -4,6 +4,7 @@ const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const { validateRegister } = require('./utils/validator');
 const app = express();
 app.use(cors());
 
@@ -35,6 +36,62 @@ const User = mongoose.model('User', userSchema);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/')));
+
+app.post('/register', async (req, res) => {
+    try {
+    const { fullName, email, coffeeChoice, expectations } = req.body;
+
+    const validation = validateRegister(fullName, email);
+
+    if(!validation.isValid) {
+        return res.status(400).json({
+            success: false,
+            message: validation.message
+        });
+    }
+
+    if(!fullName || !email || fullName.trim() === "" || email.trim() === "") {
+        return res.status(400).json({
+            success: false,
+            message: "Full name and email fields cannot be left blank!"
+        });        
+    }
+
+    if(fullName.length < 3 || fullName.length > 50) {
+        return res.status(400).json({
+            success: false,
+            message: "Name should be between 3-50 characters."
+        });
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailPattern.test(email)) {
+        return res.status(400).json({
+            success: false,
+            message: "Unvalid email!"
+        });
+    }
+
+    const newUser = new User({
+        fullName: fullName.trim(),
+        email: email.trim().toLowerCase(),
+        coffeeChoice,
+        expectations
+    });
+
+    await newUser.save();
+    res.status(201).json({
+        success: true,
+        message: "Register is successfull"
+    });
+} catch (err){
+    console.error("Registration error...", err);
+    res.status(500).json({
+        success: false,
+        message: "Server error has occured."
+    });
+}
+});
 
 app.post('/register', async (req, res) => {
     try {
