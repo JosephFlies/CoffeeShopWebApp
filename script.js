@@ -47,27 +47,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 const data = await response.json();
+                const successBox = document.getElementById('success-message');
+                const formContainer = document.getElementById('coffee-form');
                 const errorElement = document.getElementById('general-error');
+                const nameInput = document.getElementById('fullName');
+                const successText = document.getElementById('success-text');
             if(!data.success) {
-                errorElement.innertext = data.message;
+                errorElement.innerText = data.message;
                 errorElement.style.display = 'block';
+                successBox.style.display = 'none';
             } else {
                 errorElement.style.display = 'none';
-                showSuccessMessage();
-            }
-
-                if (response.ok) {
-                    const allChildren = coffeeForm.children;
+                successBox.style.display = 'block';
+                const allChildren = coffeeForm.children;
                     for (let child of allChildren) {
                         if (child.id !== 'success-message') {
                             child.style.display = 'none';
                         }
                     }
-                    successBox.style.display = 'block';
                     successText.innerText = `Congratulations ${nameInput.value}! Your 50% discount is on the way. ☕`;
-                } else {
-                    alert("Error: " + data.message);
-                }
+                    setTimeout(() => {
+                    window.location.reload();
+                }, 3000);
+            }
             } catch (error) {
                 console.error("Connection lost:", error);
                 alert("You cannot connect to the server, please make sure to initialize the server.js!");
