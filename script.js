@@ -47,6 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 const data = await response.json();
+                const errorElement = document.getElementById('general-error');
+            if(!data.success) {
+                errorElement.innertext = data.message;
+                errorElement.style.display = 'block';
+            } else {
+                errorElement.style.display = 'none';
+                showSuccessMessage();
+            }
 
                 if (response.ok) {
                     const allChildren = coffeeForm.children;

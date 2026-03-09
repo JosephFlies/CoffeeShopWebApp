@@ -295,3 +295,25 @@ th:last-child, td:last-child {
     min-height: calc(100vh - 60px);
     width: 100%;
 }
+
+#general-error {
+    display: none; 
+    text-align: center; 
+    margin-bottom: 10px;
+}
+
+.error-message {
+    color: #ff6b6b;
+    font-size: 0.9rem;
+    font-weight: bold;
+    background: rgba(255, 107, 107, 0.1);
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

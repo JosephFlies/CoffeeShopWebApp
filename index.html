@@ -13,9 +13,10 @@
         <h1>☕ Coffee Land</h1>
         <p>Sign up now, get your first coffee with %50 discount!</p>
         <label for="full-name">Full Name:</label>
-        <input type="text" id="full-name" name="full-name" placeholder="Enter your name..." maxlength="50">
+        <input type="text" id="full-name" name="full-name" placeholder="Enter your name..." maxlength="50" oninput="this.value = this.value.replace(/[0-9]/g, '')">
         <span id="name-error" class="error-message">Please enter at least 3 characters.</span>
-        
+        <div id="general-error" class="error-message"></div>
+
         <label for="email">Email Address:</label>
         <input type="email" id="email" name="email" placeholder="example@mail.com">
         <span id="email-error" class="error-message">Please enter a valid email address.</span>

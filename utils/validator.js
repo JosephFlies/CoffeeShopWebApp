@@ -3,6 +3,11 @@ const validateRegister = (fullName, email) => {
         return { isValid: false, message: "Name cannot be blank." };
     }
 
+    const namePattern = /^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]+$/;
+    if(!namePattern.test(fullName)) {
+        return { isValid: false, message: "Name should only contains letters."}
+    }
+
     if(!fullName || fullName.trim().length < 3) {
         return { isValid: false, message: "Name should be at least 3 characters."};
     }

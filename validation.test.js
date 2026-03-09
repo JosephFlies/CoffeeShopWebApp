@@ -23,4 +23,10 @@ describe('Register Validation Tests', () => {
         expect(res.isValid).toBe(false);
         expect(res.message).toBe("Name cannot be blank.");
     });
+
+    test('An error occurs when name includes numbers', () => {
+        const res = validateRegister("Ryuzaki123", "ryuzaki@mail.com");
+        expect(res.isValid).toBe(false);
+        expect(res.message).toBe("Name should only contains letters.");
+    });
 });
