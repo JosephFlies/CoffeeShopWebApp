@@ -1,0 +1,89 @@
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/mainbg.avif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Sayfayı aşağı kaydırsak bile arkaplan değişmez. */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    min-height: 100vh; /* Telefonu yan çevirsek bile form buna uyum sağlar. */
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-container {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+}
+
+.admin-card {
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    width: 90%;
+    max-width: 1000px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: white;
+}
+
+th {
+    background: rgba(255, 165, 0, 0.3);
+    padding: 12px;
+    text-align: center;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th:last-child, td:last-child {
+    border-right: none;
+}
+
+@media(max-width: 480px) {
+    body {
+        align-items: flex-start;
+        padding-top: 30px;
+    }
+
+    form {
+        padding: 20px;
+        gap: 12px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    input, button, select {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+}

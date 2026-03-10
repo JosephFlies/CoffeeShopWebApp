@@ -16,10 +16,11 @@
       <p>Sign up now, get your first coffee with %50 discount!</p>
 
       <!-- FULL NAME -->
-      <label for="full-name">Full Name:</label>
+      <label for="full-name" class="coffee-form__labels">Full Name:</label>
       <input
         type="text"
         id="full-name"
+        class="coffee-form__input"
         name="full-name"
         placeholder="Enter your name..."
         maxlength="50"
@@ -30,10 +31,11 @@
       >
 
       <!-- EMAIL -->
-      <label for="email">Email Address:</label>
+      <label for="email" class="coffee-form__labels">Email Address:</label>
       <input
         type="email"
         id="email"
+        class="coffee-form__input"
         name="email"
         placeholder="example@mail.com"
       />
@@ -42,8 +44,8 @@
       >
       
       <!-- COFFEE CHOICE -->
-      <label for="coffee-choice">Favorite Coffee:</label>
-      <select name="coffee-choice" id="coffee-choice">
+      <label for="coffee-choice" class="coffee-form__labels">Favorite Coffee:</label>
+      <select name="coffee-choice" id="coffee-choice" class="coffee-form__options">
         <option value="latte">Latte</option>
         <option value="espresso">Espresso</option>
         <option value="cappuccino">Cappuccino</option>
@@ -53,15 +55,16 @@
       </select>
 
       <!-- EXPECTATIONS -->
-      <label for="expectations">Your Expectations</label>
+      <label for="expectations" class="coffee-form__labels">Your Expectations</label>
       <textarea
         name="expectations"
         id="expectations"
+        class="coffee-form__expects"
         rows="4"
         placeholder="Tell us what you expect from us..."
       ></textarea>
       <div id="general-error" class="error-message"></div>
-      <button type="submit">Get My Discount!</button>
+      <button type="submit" id="coffee-form__btn">Get My Discount!</button>
       <div id="success-message" class="success-box">
         <span class="icon">✨</span>
         <p id="success-text">Registration Successful!</p>
